@@ -1,5 +1,6 @@
 class PortalsController < ApplicationController
   require 'uri'
+  skip_before_filter :verify_authenticity_token
   # GET /portals
   # GET /portals.json
   def index
@@ -64,6 +65,7 @@ class PortalsController < ApplicationController
     @portal.lat_coordinate = params[:lat_coordinate].to_f / 1000000
     @portal.location = URI.decode(params[:location])
     @portal.portal_guid = params[:portal_guid]
+    @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate + ',' + @portal.lng_coordinate + '&z=17&pll=' + @portal.lat_coordinate + ',' + @portal.lng_coordinate + ';'
 
     respond_to do |format|
       if @portal.save
