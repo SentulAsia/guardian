@@ -4,7 +4,7 @@ class PortalsController < ApplicationController
   # GET /portals
   # GET /portals.json
   def index
-    @portals = Portal.all
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -58,7 +58,7 @@ class PortalsController < ApplicationController
   # GET /portals/seed
   def seed
     @portal = Portal.new
-    @portal.agent_name = params[:agent_name]
+    @portal.agent_name = '@' + params[:agent_name]
     @portal.portal_name = URI.decode(params[:portal_name])
     @portal.captured_date = Time.at(params[:captured_date].to_f/1000)
     @portal.lng_coordinate = params[:lng_coordinate].to_f / 1000000

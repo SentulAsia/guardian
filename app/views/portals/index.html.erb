@@ -1,5 +1,7 @@
 <h1>Listing portals</h1>
 
+<%= will_paginate @records %>
+
 <table>
   <tr>
     <th>Agent name</th>
@@ -12,7 +14,7 @@
     <th>Location</th>
     <th>City</th>
     <th>Note</th>
-    <th>Status string</th>
+    <th>Status</th>
     <th>Destruction date</th>
     <th>Destroyed by</th>
     <th>Age points</th>
@@ -51,6 +53,8 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @records %>
 
 <br />
 

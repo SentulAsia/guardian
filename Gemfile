@@ -15,6 +15,7 @@ group :production do
   gem 'pg'
 end
 
+# gem 'rack-cors', :require => 'rack/cors'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'savon'
