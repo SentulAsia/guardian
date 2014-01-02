@@ -1,0 +1,57 @@
+<h1>Listing portals</h1>
+
+<table>
+  <tr>
+    <th>Agent name</th>
+    <th>Portal name</th>
+    <th>Captured date</th>
+    <th>Link</th>
+    <th>Lng coordinate</th>
+    <th>Lat coordinate</th>
+    <th>150 day</th>
+    <th>Location</th>
+    <th>City</th>
+    <th>Note</th>
+    <th>Status string</th>
+    <th>Destruction date</th>
+    <th>Destroyed by</th>
+    <th>Age points</th>
+    <th>Bonus points</th>
+    <th>Total points</th>
+    <th>Bonus details</th>
+    <th>Portal guid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @portals.each do |portal| %>
+  <tr>
+    <td><%= portal.agent_name %></td>
+    <td><%= portal.portal_name %></td>
+    <td><%= portal.captured_date %></td>
+    <td><%= portal.link %></td>
+    <td><%= portal.lng_coordinate %></td>
+    <td><%= portal.lat_coordinate %></td>
+    <td><%= portal.day_of_150 %></td>
+    <td><%= portal.location %></td>
+    <td><%= portal.city %></td>
+    <td><%= portal.note %></td>
+    <td><%= portal.status_string %></td>
+    <td><%= portal.destruction_date %></td>
+    <td><%= portal.destroyed_by %></td>
+    <td><%= portal.age_points %></td>
+    <td><%= portal.bonus_points %></td>
+    <td><%= portal.total_points %></td>
+    <td><%= portal.bonus_details %></td>
+    <td><%= portal.portal_guid %></td>
+    <td><%= link_to 'Show', portal %></td>
+    <td><%= link_to 'Edit', edit_portal_path(portal) %></td>
+    <td><%= link_to 'Destroy', portal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Portal', new_portal_path %>

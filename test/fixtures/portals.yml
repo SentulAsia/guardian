@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  agent_name: MyString
+  portal_name: MyString
+  captured_date: MyString
+  link: MyString
+  lng_coordinate: 9.99
+  lat_coordinate: 9.99
+  day_of_150: MyString
+  location: MyString
+  city: MyString
+  note: MyText
+  status_string: MyString
+  destruction_date: MyString
+  destroyed_by: MyString
+  age_points: 1
+  bonus_points: 1
+  total_points: 1
+  bonus_details: MyString
+  portal_guid: MyString
+
+two:
+  agent_name: MyString
+  portal_name: MyString
+  captured_date: MyString
+  link: MyString
+  lng_coordinate: 9.99
+  lat_coordinate: 9.99
+  day_of_150: MyString
+  location: MyString
+  city: MyString
+  note: MyText
+  status_string: MyString
+  destruction_date: MyString
+  destroyed_by: MyString
+  age_points: 1
+  bonus_points: 1
+  total_points: 1
+  bonus_details: MyString
+  portal_guid: MyString

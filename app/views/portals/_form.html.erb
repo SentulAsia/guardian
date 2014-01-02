@@ -1,0 +1,89 @@
+<%= form_for(@portal) do |f| %>
+  <% if @portal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portal.errors.count, "error") %> prohibited this portal from being saved:</h2>
+
+      <ul>
+      <% @portal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :agent_name %><br />
+    <%= f.text_field :agent_name %>
+  </div>
+  <div class="field">
+    <%= f.label :portal_name %><br />
+    <%= f.text_field :portal_name %>
+  </div>
+  <div class="field">
+    <%= f.label :captured_date %><br />
+    <%= f.text_field :captured_date %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :lng_coordinate %><br />
+    <%= f.text_field :lng_coordinate %>
+  </div>
+  <div class="field">
+    <%= f.label :lat_coordinate %><br />
+    <%= f.text_field :lat_coordinate %>
+  </div>
+  <div class="field">
+    <%= f.label :day_of_150 %><br />
+    <%= f.text_field :day_of_150 %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :note %><br />
+    <%= f.text_area :note %>
+  </div>
+  <div class="field">
+    <%= f.label :status_string %><br />
+    <%= f.text_field :status_string %>
+  </div>
+  <div class="field">
+    <%= f.label :destruction_date %><br />
+    <%= f.text_field :destruction_date %>
+  </div>
+  <div class="field">
+    <%= f.label :destroyed_by %><br />
+    <%= f.text_field :destroyed_by %>
+  </div>
+  <div class="field">
+    <%= f.label :age_points %><br />
+    <%= f.number_field :age_points %>
+  </div>
+  <div class="field">
+    <%= f.label :bonus_points %><br />
+    <%= f.number_field :bonus_points %>
+  </div>
+  <div class="field">
+    <%= f.label :total_points %><br />
+    <%= f.number_field :total_points %>
+  </div>
+  <div class="field">
+    <%= f.label :bonus_details %><br />
+    <%= f.text_field :bonus_details %>
+  </div>
+  <div class="field">
+    <%= f.label :portal_guid %><br />
+    <%= f.text_field :portal_guid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

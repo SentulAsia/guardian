@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Agent name:</b>
+  <%= @portal.agent_name %>
+</p>
+
+<p>
+  <b>Portal name:</b>
+  <%= @portal.portal_name %>
+</p>
+
+<p>
+  <b>Captured date:</b>
+  <%= @portal.captured_date %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @portal.link %>
+</p>
+
+<p>
+  <b>Lng coordinate:</b>
+  <%= @portal.lng_coordinate %>
+</p>
+
+<p>
+  <b>Lat coordinate:</b>
+  <%= @portal.lat_coordinate %>
+</p>
+
+<p>
+  <b>150 day:</b>
+  <%= @portal.day_of_150 %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @portal.location %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @portal.city %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @portal.note %>
+</p>
+
+<p>
+  <b>Status string:</b>
+  <%= @portal.status_string %>
+</p>
+
+<p>
+  <b>Destruction date:</b>
+  <%= @portal.destruction_date %>
+</p>
+
+<p>
+  <b>Destroyed by:</b>
+  <%= @portal.destroyed_by %>
+</p>
+
+<p>
+  <b>Age points:</b>
+  <%= @portal.age_points %>
+</p>
+
+<p>
+  <b>Bonus points:</b>
+  <%= @portal.bonus_points %>
+</p>
+
+<p>
+  <b>Total points:</b>
+  <%= @portal.total_points %>
+</p>
+
+<p>
+  <b>Bonus details:</b>
+  <%= @portal.bonus_details %>
+</p>
+
+<p>
+  <b>Portal guid:</b>
+  <%= @portal.portal_guid %>
+</p>
+
+
+<%= link_to 'Edit', edit_portal_path(@portal) %> |
+<%= link_to 'Back', portals_path %>
