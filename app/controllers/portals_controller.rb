@@ -53,6 +53,28 @@ class PortalsController < ApplicationController
     end
   end
 
+  # GET /portals/seed
+  def seed
+    @portal = Portal.new
+    @portal.agent_name = params[:agent_name]
+    @portal.portal_name = params[:portal_name]
+    @portal.captured_date = params[:captured_date]
+    @portal.lng_coordinate = params[:lng_coordinate]
+    @portal.lat_coordinate = params[:lat_coordinate]
+    @portal.location = params[:location]
+    @portal.portal_guid = params[:portal_guid]
+
+    respond_to do |format|
+      if @portal.save
+        format.html { redirect_to @portal, notice: 'Portal was successfully created.' }
+        format.json { render json: @portal, status: :created, location: @portal }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @portal.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /portals/1
   # PUT /portals/1.json
   def update
