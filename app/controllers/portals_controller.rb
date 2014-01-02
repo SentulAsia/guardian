@@ -1,4 +1,5 @@
 class PortalsController < ApplicationController
+  require 'uri'
   # GET /portals
   # GET /portals.json
   def index
@@ -56,13 +57,13 @@ class PortalsController < ApplicationController
   # GET /portals/seed
   def seed
     @portal = Portal.new
-    @portal.agent_name = params[:agent_name].gsub("%20"," ")
-    @portal.portal_name = params[:portal_name].gsub("%20"," ")
-    @portal.captured_date = params[:captured_date].gsub("%20"," ")
+    @portal.agent_name = params[:agent_name]
+    @portal.portal_name = URI.decode(params[:portal_name])
+    @portal.captured_date = params[:captured_date]
     @portal.lng_coordinate = params[:lng_coordinate].to_f / 1000000
     @portal.lat_coordinate = params[:lat_coordinate].to_f / 1000000
-    @portal.location = params[:location].gsub("%20"," ")
-    @portal.portal_guid = params[:portal_guid].gsub("%20"," ")
+    @portal.location = URI.decode(params[:location])
+    @portal.portal_guid = params[:portal_guid]
 
     respond_to do |format|
       if @portal.save
