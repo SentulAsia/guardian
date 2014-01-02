@@ -5,8 +5,8 @@ class CreatePortals < ActiveRecord::Migration
       t.string :portal_name, :null => false
       t.string :captured_date, :null => false
       t.string :link
-      t.decimal :lng_coordinate, :null => false
-      t.decimal :lat_coordinate, :null => false
+      t.decimal :lng_coordinate, :null => false, :precision => 25, :scale => 21
+      t.decimal :lat_coordinate, :null => false, :precision => 25, :scale => 21
       t.string :day_of_150
       t.string :location, :null => false
       t.string :city
