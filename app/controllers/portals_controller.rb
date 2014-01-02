@@ -56,13 +56,13 @@ class PortalsController < ApplicationController
   # GET /portals/seed
   def seed
     @portal = Portal.new
-    @portal.agent_name = params[:agent_name]
-    @portal.portal_name = params[:portal_name]
-    @portal.captured_date = params[:captured_date]
-    @portal.lng_coordinate = params[:lng_coordinate]
-    @portal.lat_coordinate = params[:lat_coordinate]
-    @portal.location = params[:location]
-    @portal.portal_guid = params[:portal_guid]
+    @portal.agent_name = params[:agent_name].gsub("%20"," ")
+    @portal.portal_name = params[:portal_name].gsub("%20"," ")
+    @portal.captured_date = params[:captured_date].gsub("%20"," ")
+    @portal.lng_coordinate = params[:lng_coordinate].gsub("%20"," ")
+    @portal.lat_coordinate = params[:lat_coordinate].gsub("%20"," ")
+    @portal.location = params[:location].gsub("%20"," ")
+    @portal.portal_guid = params[:portal_guid].gsub("%20"," ")
 
     respond_to do |format|
       if @portal.save
