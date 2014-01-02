@@ -18,12 +18,13 @@ class CreatePortals < ActiveRecord::Migration
       t.integer :bonus_points
       t.integer :total_points
       t.string :bonus_details
-      t.string :portal_guid
+      t.string :portal_guid, :null => false
 
       t.timestamps
     end
     add_index :portals, :agent_name
     add_index :portals, :captured_date
     add_index :portals, :location
+    add_index :portals, :portal_guid, :unique => true
   end
 end
