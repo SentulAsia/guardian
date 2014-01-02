@@ -60,12 +60,13 @@ class PortalsController < ApplicationController
     @portal = Portal.new
     @portal.agent_name = params[:agent_name]
     @portal.portal_name = URI.decode(params[:portal_name])
-    @portal.captured_date = params[:captured_date]
+    @portal.captured_date = Time.at(params[:captured_date].to_f/1000)
     @portal.lng_coordinate = params[:lng_coordinate].to_f / 1000000
     @portal.lat_coordinate = params[:lat_coordinate].to_f / 1000000
     @portal.location = URI.decode(params[:location])
     @portal.portal_guid = params[:portal_guid]
     @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + '&z=17&pll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + ';'
+    @portal.day_of_150 = @portal.captured_date + 150.days
 
     respond_to do |format|
       if @portal.save

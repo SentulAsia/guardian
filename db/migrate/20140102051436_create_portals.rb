@@ -3,7 +3,7 @@ class CreatePortals < ActiveRecord::Migration
     create_table :portals do |t|
       t.string :agent_name, :null => false
       t.string :portal_name, :null => false
-      t.string :captured_date, :null => false
+      t.datetime :captured_date, :null => false
       t.string :link
       t.decimal :lng_coordinate, :null => false, :precision => 25, :scale => 21
       t.decimal :lat_coordinate, :null => false, :precision => 25, :scale => 21
@@ -12,7 +12,7 @@ class CreatePortals < ActiveRecord::Migration
       t.string :city
       t.text :note
       t.string :status_string
-      t.string :destruction_date
+      t.datetime :destruction_date
       t.string :destroyed_by
       t.integer :age_points
       t.integer :bonus_points
