@@ -65,7 +65,7 @@ class PortalsController < ApplicationController
     @portal.lat_coordinate = params[:lat_coordinate].to_f / 1000000
     @portal.location = URI.decode(params[:location])
     @portal.portal_guid = params[:portal_guid]
-    @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate + ',' + @portal.lng_coordinate + '&z=17&pll=' + @portal.lat_coordinate + ',' + @portal.lng_coordinate + ';'
+    @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + '&z=17&pll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + ';'
 
     respond_to do |format|
       if @portal.save
