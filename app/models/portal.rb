@@ -7,5 +7,5 @@ class Portal < ActiveRecord::Base
   validates :location, :presence => true
   validates :lng_coordinate, :presence => true, :numericality => { :only_integer => true }, :inclusion => { :in => -360..360, :message => "%{value} is not a valid longitude" }
   validates :lat_coordinate, :presence => true, :numericality => { :only_integer => true }, :inclusion => { :in => -360..360, :message => "%{value} is not a valid latitude" }
-  validates :portal_guid, :presence => true, :unique => true
+  validates :portal_guid, :presence => true, :uniqueness => true
 end
