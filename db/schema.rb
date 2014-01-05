@@ -11,29 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102051436) do
+ActiveRecord::Schema.define(:version => 20140105131416) do
 
   create_table "portals", :force => true do |t|
-    t.string   "agent_name",       :null => false
-    t.string   "portal_name",      :null => false
-    t.string   "captured_date",    :null => false
+    t.string   "agent_name",                      :null => false
+    t.string   "portal_name",                     :null => false
+    t.datetime "captured_date",    :limit => 255, :null => false
     t.string   "link"
-    t.decimal  "lng_coordinate",   :null => false
-    t.decimal  "lat_coordinate",   :null => false
-    t.string   "day_of_150"
-    t.string   "location",         :null => false
+    t.decimal  "lng_coordinate",                  :null => false
+    t.decimal  "lat_coordinate",                  :null => false
+    t.datetime "day_of_150",       :limit => 255
+    t.string   "location",                        :null => false
     t.string   "city"
     t.text     "note"
     t.string   "status_string"
-    t.string   "destruction_date"
+    t.datetime "destruction_date", :limit => 255
     t.string   "destroyed_by"
     t.integer  "age_points"
     t.integer  "bonus_points"
     t.integer  "total_points"
     t.string   "bonus_details"
     t.string   "portal_guid"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   add_index "portals", ["agent_name"], :name => "index_portals_on_agent_name"

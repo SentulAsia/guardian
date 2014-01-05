@@ -30,9 +30,9 @@
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
-    <td><%= portal.lat_coordinate %>, <%= portal.lng_coordinate %></td>
+    <td><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.day_of_150 %></td>
-    <td><%= portal.location %></td>
+    <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.city %></td>
     <td><%= portal.note %></td>
     <td><%= portal.status_string %></td>
