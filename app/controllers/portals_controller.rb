@@ -4,7 +4,7 @@ class PortalsController < ApplicationController
   # GET /portals
   # GET /portals.json
   def index
-    @portals = Portal.paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).order('captured_date ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,7 +46,7 @@ class PortalsController < ApplicationController
 
     respond_to do |format|
       if @portal.save
-        format.html { redirect_to @portal, notice: 'Portal was successfully created.' }
+        format.html { redirect_to portals_url, notice: 'Portal was successfully created.' }
         format.json { render json: @portal, status: :created, location: @portal }
       else
         format.html { render action: "new" }
@@ -67,10 +67,11 @@ class PortalsController < ApplicationController
     @portal.portal_guid = params[:portal_guid]
     @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + '&z=17&pll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + ';'
     @portal.day_of_150 = @portal.captured_date + 150.days
+    @portal.status_string = "Live"
 
     respond_to do |format|
       if @portal.save
-        format.html { redirect_to @portal, notice: 'Portal was successfully created.' }
+        format.html { redirect_to portals_url, notice: 'Portal was successfully created.' }
         format.json { render json: @portal, status: :created, location: @portal }
       else
         format.html { render action: "new" }
@@ -86,7 +87,7 @@ class PortalsController < ApplicationController
 
     respond_to do |format|
       if @portal.update_attributes(params[:portal])
-        format.html { redirect_to @portal, notice: 'Portal was successfully updated.' }
+        format.html { redirect_to portals_url, notice: 'Portal was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
