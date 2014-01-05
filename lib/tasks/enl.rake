@@ -11,3 +11,18 @@ namespace :status do
 		puts "Done!"
 	end
 end
+
+namespace :time do
+	desc "Set All Time to UTC"
+	task :parse => :environment do
+		puts "Set All Time to UTC..."
+		Portal.order('id ASC').each do |portal|
+			portal.captured_date = ActiveSupport::TimeZone['UTC'].parse(portal.captured_date.to_s)
+			portal.day_of_150 = ActiveSupport::TimeZone['UTC'].parse(portal.day_of_150.to_s)
+			portal.save!
+			print "#{portal.id}..."
+			STDOUT.flush
+		end
+		puts "Done!"
+	end
+end
