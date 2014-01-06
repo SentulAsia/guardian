@@ -4,6 +4,7 @@ class PortalsController < ApplicationController
   # GET /portals
   # GET /portals.json
   def index
+    @now = Time.now
     @portals = Portal.paginate(:page => params[:page], :per_page => 30).order('captured_date ASC')
 
     respond_to do |format|
