@@ -31,7 +31,7 @@
     <td><%= portal.day_of_150 %></td>
     <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %><br /><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.note %></td>
-    <td><%= portal.status_string %></td>
+    <td><%= portal.status_string %><%= ' by ' + portal.destroyed_by + ' on ' + portal.destruction_date.to_s unless portal.status_string == 'Live' %></td>
     <td><%= link_to 'Edit', edit_portal_path(portal), :class => 'btn btn-mini' %> <%= link_to 'Destroy', portal, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
   </tr>
 <% end %></tbody>
