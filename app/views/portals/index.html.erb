@@ -13,13 +13,13 @@
 
 <table class="table table-striped table-bordered">
   <thead><tr>
-    <th>Agent ID</th>
-    <th>Portal Name</th>
-    <th>Captured</th>
+    <th><%= sortable "agent_name", "Agent ID" %></th>
+    <th><%= sortable "portal_name", "Portal Name" %></th>
+    <th><%= sortable "captured_date", "Captured" %></th>
     <th>Age</th>
     <th>Address & Coordinate</th>
     <th>Note</th>
-    <th>Status</th>
+    <th><%= sortable "status_string", "Status" %></th>
     <th>Action</th>
   </tr></thead>
 
