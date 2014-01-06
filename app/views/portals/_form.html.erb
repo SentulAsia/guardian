@@ -26,15 +26,17 @@
       </div>
     </div>
     <div class="control-group clearfix">
-      <%= f.label :destruction_date, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.datetime_select :destruction_date, :order => [:day, :month, :year], :ampm => true, :minute_step => 1, :class => 'datetime_select' %>
-      </div>
-    </div>
-    <div class="control-group clearfix">
       <%= f.label :destroyed_by, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :destroyed_by, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group clearfix">
+      <%= f.label :destruction_date, :class => 'control-label' %>
+      <div class="controls">
+        <% Time.use_zone("Kuala Lumpur") do %>
+          <%= f.datetime_select :destruction_date, :order => [:day, :month, :year], :ampm => true, :minute_step => 1, :class => 'datetime_select' %>
+        <% end %>
       </div>
     </div>
   </fieldset>
