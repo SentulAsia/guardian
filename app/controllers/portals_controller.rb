@@ -1,5 +1,5 @@
 class PortalsController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :except => :seed
   require 'uri'
   skip_before_filter :verify_authenticity_token
   # GET /portals
