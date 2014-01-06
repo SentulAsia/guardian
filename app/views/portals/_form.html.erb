@@ -1,6 +1,7 @@
-<%= form_for(@portal) do |f| %>
+<%= form_for @portal, :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <% if @portal.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-block alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= pluralize(@portal.errors.count, "error") %> prohibited this portal from being saved:</h2>
 
       <ul>
@@ -11,79 +12,34 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :agent_name %><br />
-    <%= f.text_field :agent_name %>
-  </div>
-  <div class="field">
-    <%= f.label :portal_name %><br />
-    <%= f.text_field :portal_name %>
-  </div>
-  <div class="field">
-    <%= f.label :captured_date %><br />
-    <%= f.datetime_select :captured_date %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br />
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :lng_coordinate %><br />
-    <%= f.text_field :lng_coordinate %>
-  </div>
-  <div class="field">
-    <%= f.label :lat_coordinate %><br />
-    <%= f.text_field :lat_coordinate %>
-  </div>
-  <div class="field">
-    <%= f.label :day_of_150 %><br />
-    <%= f.datetime_select :day_of_150 %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_area :note %>
-  </div>
-  <div class="field">
-    <%= f.label :status_string, 'Status' %><br />
-    <%= f.text_field :status_string %>
-  </div>
-  <div class="field">
-    <%= f.label :destruction_date %><br />
-    <%= f.datetime_select :destruction_date %>
-  </div>
-  <div class="field">
-    <%= f.label :destroyed_by %><br />
-    <%= f.text_field :destroyed_by %>
-  </div>
-  <div class="field">
-    <%= f.label :age_points %><br />
-    <%= f.number_field :age_points %>
-  </div>
-  <div class="field">
-    <%= f.label :bonus_points %><br />
-    <%= f.number_field :bonus_points %>
-  </div>
-  <div class="field">
-    <%= f.label :total_points %><br />
-    <%= f.number_field :total_points %>
-  </div>
-  <div class="field">
-    <%= f.label :bonus_details %><br />
-    <%= f.text_field :bonus_details %>
-  </div>
-  <div class="field">
-    <%= f.label :portal_guid %><br />
-    <%= f.text_field :portal_guid %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <fieldset>
+    <div class="control-group clearfix">
+      <%= f.label :note, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :note, :class => 'text_area' %>
+      </div>
+    </div>
+    <div class="control-group clearfix">
+      <%= f.label :status_string, 'Status', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :status_string, ["Live", "Destroyed"], :class => 'select' %>
+      </div>
+    </div>
+    <div class="control-group clearfix">
+      <%= f.label :destruction_date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.datetime_select :destruction_date, :order => [:day, :month, :year], :ampm => true, :minute_step => 1, :class => 'datetime_select' %>
+      </div>
+    </div>
+    <div class="control-group clearfix">
+      <%= f.label :destroyed_by, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :destroyed_by, :class => 'text_field' %>
+      </div>
+    </div>
+  </fieldset>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary', :onclick => "$(body).addClass('loading');" %>
+    <%= link_to 'Cancel', :back, :class => 'btn' %>
   </div>
 <% end %>
