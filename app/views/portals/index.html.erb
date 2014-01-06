@@ -9,6 +9,16 @@
   </div>
 <% end %>
 
+<%= form_tag portals_path, :method => 'get' do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= select_tag :type, options_for_select([["Address", "location"], ["Agent ID", "agent_name"], ["Portal Name", "portal_name"]], params[:type]) %>
+    <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
 <%= will_paginate @records %>
 
 <table class="table table-striped table-bordered">

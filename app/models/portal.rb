@@ -15,4 +15,12 @@ class Portal < ActiveRecord::Base
   def convert_time_to_utc
     self.destruction_date = self.destruction_date - 8.hours
   end
+
+  def self.search(search,type)
+      if search
+          where("#{type} LIKE ?", "%#{search}%")
+      else
+          scoped
+      end
+  end
 end
