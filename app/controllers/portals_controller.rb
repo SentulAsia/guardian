@@ -38,6 +38,7 @@ class PortalsController < ApplicationController
   # GET /portals/1/edit
   def edit
     @portal = Portal.find(params[:id])
+    @portal.destruction_date = Time.now if @portal.status_string == 'Live'
   end
 
   # POST /portals
