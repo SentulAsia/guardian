@@ -8,4 +8,10 @@ class Portal < ActiveRecord::Base
   validates :lng_coordinate, :presence => true, :numericality => true
   validates :lat_coordinate, :presence => true, :numericality => true
   validates :portal_guid, :presence => true, :uniqueness => true
+
+  before_save :convert_time_to_utc
+
+  def convert_time_to_utc
+    self.destruction_date = self.destruction_date - 8.hours
+  end
 end
