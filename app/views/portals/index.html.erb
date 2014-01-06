@@ -16,7 +16,7 @@
     <th>Agent ID</th>
     <th>Portal Name</th>
     <th>Captured</th>
-    <th>150 day</th>
+    <th>Portal Age</th>
     <th>Address & Coordinate</th>
     <th>Note</th>
     <th>Status</th>
@@ -28,7 +28,7 @@
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
-    <td><%= portal.day_of_150 %></td>
+    <td><%= (Time.now - portal.captured_date) / 60 / 60 / 24 %> days</td>
     <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %><br /><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.note %></td>
     <td><%= portal.status_string %></td>
