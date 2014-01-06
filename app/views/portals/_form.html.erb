@@ -41,6 +41,7 @@
     </div>
   </fieldset>
   <div class="form-actions">
+    <%= f.hidden_field :page, value: params[:page] %>
     <%= f.submit nil, :class => 'btn btn-primary', :onclick => "$(body).addClass('loading');" %>
     <%= link_to 'Cancel', :back, :class => 'btn' %>
   </div>

@@ -84,10 +84,11 @@ class PortalsController < ApplicationController
   # PUT /portals/1.json
   def update
     @portal = Portal.find(params[:id])
+    @page = params[:portal][:page] unless params[:portal][:page].blank?
 
     respond_to do |format|
       if @portal.update_attributes(params[:portal])
-        format.html { redirect_to portals_url, notice: 'Portal was successfully updated.' }
+        format.html { redirect_to portals_url(:page => @page), notice: 'Portal was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
