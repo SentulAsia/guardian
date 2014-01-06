@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Agent ID</Data></Cell>
+        <Cell><Data ss:Type="String">Portal name</Data></Cell>
+        <Cell><Data ss:Type="String">Captured date</Data></Cell>
+        <Cell><Data ss:Type="String">Link</Data></Cell>
+        <Cell><Data ss:Type="String">Lat coordinate</Data></Cell>
+        <Cell><Data ss:Type="String">Lng coordinate</Data></Cell>
+        <Cell><Data ss:Type="String">150 day</Data></Cell>
+        <Cell><Data ss:Type="String">Address</Data></Cell>
+        <Cell><Data ss:Type="String">Note</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+        <Cell><Data ss:Type="String">Destroyed by</Data></Cell>
+        <Cell><Data ss:Type="String">Destruction date</Data></Cell>
+      </Row>
+    <% @portals.each do |portal| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= portal.agent_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.portal_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.captured_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.link %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= portal.lat_coordinate %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= portal.lng_coordinate %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.day_of_150 %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.location %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.note %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.status_string %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.destroyed_by %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= portal.destruction_date %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

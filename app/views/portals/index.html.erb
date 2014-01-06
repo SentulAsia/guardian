@@ -40,5 +40,5 @@
 <%= will_paginate @records %>
 
 <div class="form-actions">
-  <%= link_to 'New Portal', new_portal_path, :class => 'btn btn-primary' %>
+  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page]), :class => 'btn' %>
 </div>

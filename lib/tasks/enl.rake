@@ -26,9 +26,9 @@ namespace :time do
 		puts "Done!"
 	end
 
-	desc "Purge Portals Less Than 55 Days"
+	desc "Purge Portals Less Than 20 Days"
 	task :purge => :environment do
-		puts "Purge Portals Less Than 55 Days..."
+		puts "Purge Portals Less Than 20 Days..."
 		Portal.order('id ASC').each do |portal|
 			flag = ((Time.now - portal.captured_date) / 86400).round < 20
 			if flag
