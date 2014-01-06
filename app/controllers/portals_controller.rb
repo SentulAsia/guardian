@@ -1,4 +1,5 @@
 class PortalsController < ApplicationController
+  before_filter :authenticate
   require 'uri'
   skip_before_filter :verify_authenticity_token
   # GET /portals
@@ -111,6 +112,16 @@ class PortalsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to portals_url }
       format.json { head :no_content }
+    end
+  end
+
+  protected
+
+  def authenticate
+    unless request.format == :json or request.format == :xml or request.format == :xls
+      authenticate_or_request_with_http_basic do |username, password|
+        username == "smurftears" && password == "smurfcrycry"
+      end
     end
   end
 end
