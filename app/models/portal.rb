@@ -13,6 +13,6 @@ class Portal < ActiveRecord::Base
   before_save :convert_time_to_utc
 
   def convert_time_to_utc
-    self.destruction_date = self.destruction_date - 8.hours
+    self.destruction_date = self.destruction_date - 8.hours if self.destruction_date
   end
 end
