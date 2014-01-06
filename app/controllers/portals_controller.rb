@@ -68,6 +68,8 @@ class PortalsController < ApplicationController
     @portal.link = 'http://ingress.com/intel?ll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + '&z=17&pll=' + @portal.lat_coordinate.to_s + ',' + @portal.lng_coordinate.to_s + ';'
     @portal.day_of_150 = @portal.captured_date + 150.days
     @portal.status_string = "Live"
+    @portal.destroyed_by = nil
+    @portal.destruction_date = nil
 
     respond_to do |format|
       if @portal.save
