@@ -7,8 +7,8 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @now = Time.now
-    @portals = Portal.paginate(:conditions => ["status_string == ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status]
-    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status]
+    @portals = Portal.paginate(:conditions => ["status_string = ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status].blank?
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status].blank?
 
     respond_to do |format|
       format.html # index.html.erb
