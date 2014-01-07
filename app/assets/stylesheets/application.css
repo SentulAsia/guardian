@@ -66,3 +66,17 @@ div.control-group div.controls select#portal_destruction_date_5i {
 div.control-group div.controls textarea.text_area {
     height: 200px;
 }
+
+.pretty th .current {
+    padding-right: 12px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.pretty th .asc {
+    background-image: url(/assets/up_arrow.png);
+}
+
+.pretty th .desc {
+    background-image: url(/assets/down_arrow.png);
+}

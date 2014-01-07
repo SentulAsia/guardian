@@ -10,10 +10,18 @@ class Portal < ActiveRecord::Base
   validates :lat_coordinate, :presence => true, :numericality => true
   validates :portal_guid, :presence => true, :uniqueness => true
 
-  before_save :convert_time_to_utc
+  before_save :calculate_points
 
-  def convert_time_to_utc
+  def calculate_points
     self.destruction_date = self.destruction_date - 8.hours unless self.destruction_date.blank?
     self.total_points = 1 if self.status_string == 'Destroyed'
+  end
+
+  def self.search(search,type)
+      if search
+          where("#{type} LIKE ?", "%#{search}%")
+      else
+          scoped
+      end
   end
 end
