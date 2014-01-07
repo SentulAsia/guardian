@@ -29,14 +29,14 @@
     <th><%= sortable "portal_name", "Portal Name" %></th>
     <th><%= sortable "captured_date", "Captured" %></th>
     <th>Age</th>
-    <th>Address & Coordinate</th>
+    <th>Address &amp; Coordinate</th>
     <th>Note</th>
     <th><%= sortable "status_string", "Status" %></th>
     <th>Action</th>
   </tr></thead>
 
 <tbody><% @portals.each do |portal| %>
-  <tr>
+  <tr class="<%= 'near_milestone' if @guardian_milestones.include?(((@now - portal.captured_date) / 86400).round) %>">
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
