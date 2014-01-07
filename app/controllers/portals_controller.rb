@@ -77,16 +77,10 @@ class PortalsController < ApplicationController
     @portal.destruction_date = nil
 
     respond_to do |format|
-      if ((Time.now - @portal.captured_date) / 86400).round > 19
-        if @portal.save and ((Time.now - @portal.captured_date) / 86400).round > 19
-          format.html { redirect_to portals_url, notice: 'Portal was successfully seeded.' }
-          format.json { render json: @portal, status: :created, location: @portal }
-        else
-          format.html { render action: "new" }
-          format.json { render json: @portal.errors, status: :unprocessable_entity }
-        end
+      if @portal.save
+        format.html { redirect_to portals_url, notice: 'Portal was successfully seeded.' }
+        format.json { render json: @portal, status: :created, location: @portal }
       else
-        @portal.errors.add(:captured_date, "Portal age below 20 days")
         format.html { render action: "new" }
         format.json { render json: @portal.errors, status: :unprocessable_entity }
       end

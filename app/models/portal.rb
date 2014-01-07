@@ -9,6 +9,7 @@ class Portal < ActiveRecord::Base
   validates :lng_coordinate, :presence => true, :numericality => true
   validates :lat_coordinate, :presence => true, :numericality => true
   validates :portal_guid, :presence => true, :uniqueness => true
+  validate :portal_age_above_20_days
 
   before_save :calculate_points
 
@@ -23,5 +24,12 @@ class Portal < ActiveRecord::Base
       else
           scoped
       end
+  end
+
+  private
+
+  def portal_age_above_20_days
+     errors.add(:captured_date, "Portal age below 20 days") unless
+     ((Time.now - self.captured_date) / 86400).round > 19
   end
 end
