@@ -37,11 +37,12 @@
 
 <tbody><% @portals.each do |portal| %>
   <% age = ((@now - portal.captured_date) / 86400).round %>
+  <% badge = age > 150 ? 'black' : age > 90 ? 'platinum' : age > 30 ? 'gold' : '' %>
   <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %><%= 'destroyed' if portal.status_string == 'Destroyed' %>">
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
-    <td><%= age.to_s + ' days' if portal.status_string == 'Live' %><%= 'Dead' if portal.status_string == 'Destroyed' %></td>
+    <td class="<%= badge %>"><%= age.to_s + ' days' if portal.status_string == 'Live' %><%= 'Dead' if portal.status_string == 'Destroyed' %></td>
     <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %><br /><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.note %></td>
     <td><%= portal.status_string %><%= ' by @' + portal.destroyed_by + ' on ' + portal.destruction_date.in_time_zone('Kuala Lumpur').to_s if portal.status_string == 'Destroyed' %></td>
