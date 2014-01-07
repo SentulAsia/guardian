@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Listing Guardian Portals</h1>
+  <h1><%= link_to 'Smurf Tears', root_url %></h1>
 </div>
 
 <% if notice %>
@@ -9,15 +9,17 @@
   </div>
 <% end %>
 
-<%= form_tag portals_path, :method => 'get' do %>
-    <%= hidden_field_tag :direction, params[:direction] %>
-    <%= hidden_field_tag :sort, params[:sort] %>
-    <p>
-    <%= text_field_tag :search, params[:search] %>
+<div class="pull-right control-group">
+  <%= form_tag portals_path, :method => 'get', :class => 'form-search' do %>
     <%= select_tag :type, options_for_select([["Address", "location"], ["Agent ID", "agent_name"], ["Portal Name", "portal_name"]], params[:type]) %>
-    <%= submit_tag "Search", :name => nil %>
-    </p>
-<% end %>
+    <div class="input-append">
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil, :class => 'btn' %>
+    </div>
+  <% end %>
+</div>
 
 <%= will_paginate @records %>
 
@@ -27,18 +29,19 @@
     <th><%= sortable "portal_name", "Portal Name" %></th>
     <th><%= sortable "captured_date", "Captured" %></th>
     <th>Age</th>
-    <th>Address & Coordinate</th>
+    <th>Address &amp; Coordinate</th>
     <th>Note</th>
     <th><%= sortable "status_string", "Status" %></th>
     <th>Action</th>
   </tr></thead>
 
 <tbody><% @portals.each do |portal| %>
-  <tr>
+  <% age = ((@now - portal.captured_date) / 86400).round %>
+  <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %>">
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
-    <td><%= ((@now - portal.captured_date) / 86400).round.to_s + ' days' if portal.status_string == 'Live' %><%= 'Dead' if portal.status_string == 'Destroyed' %></td>
+    <td><%= age.to_s + ' days' if portal.status_string == 'Live' %><%= 'Dead' if portal.status_string == 'Destroyed' %></td>
     <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %><br /><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.note %></td>
     <td><%= portal.status_string %><%= ' by @' + portal.destroyed_by + ' on ' + portal.destruction_date.in_time_zone('Kuala Lumpur').to_s if portal.status_string == 'Destroyed' %></td>
@@ -50,5 +53,5 @@
 <%= will_paginate @records %>
 
 <div class="form-actions">
-  <%= link_to 'New Portal', new_portal_path, :class => 'btn btn-primary' %>
+  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search]), :class => 'btn' %>
 </div>
