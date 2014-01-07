@@ -7,7 +7,7 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @now = Time.now
-    @portals = Portal.search(params[:search], params[:type]).paginate(:page => params[:page], :per_page => 30).order(sort_column + " " + sort_direction)
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb

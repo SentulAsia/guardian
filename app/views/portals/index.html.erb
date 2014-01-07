@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= link_to 'Listing Guardian Portals', root_url %></h1>
+  <h1><%= link_to 'Smurf Tears', root_url %></h1>
 </div>
 
 <div class="pull-right control-group">
@@ -52,5 +52,5 @@
 <%= will_paginate @records %>
 
 <div class="form-actions">
-  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page]), :class => 'btn' %>
+  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search]), :class => 'btn' %>
 </div>
