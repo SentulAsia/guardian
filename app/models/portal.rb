@@ -1,6 +1,6 @@
 class Portal < ActiveRecord::Base
-  attr_accessor :page
-  attr_accessible :day_of_150, :age_points, :agent_name, :bonus_details, :bonus_points, :captured_date, :city, :destroyed_by, :destruction_date, :lat_coordinate, :link, :lng_coordinate, :location, :note, :page, :portal_guid, :portal_name, :status_string, :total_points
+  attr_accessor :direction, :page, :search, :sort, :status, :type
+  attr_accessible :age_points, :agent_name, :bonus_details, :bonus_points, :captured_date, :city, :day_of_150, :destroyed_by, :destruction_date, :direction, :lat_coordinate, :link, :lng_coordinate, :location, :note, :page, :portal_guid, :portal_name, :search, :sort, :status, :status_string, :total_points, :type
 
   validates :agent_name, :presence => true
   validates :portal_name, :presence => true

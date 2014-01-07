@@ -7,7 +7,8 @@ class PortalsController < ApplicationController
   # GET /portals.json
   def index
     @now = Time.now
-    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction)
+    @portals = Portal.paginate(:conditions => ["status_string == ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status]
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -92,10 +93,15 @@ class PortalsController < ApplicationController
   def update
     @portal = Portal.find(params[:id])
     @page = params[:portal][:page] unless params[:portal][:page].blank?
+    @type = params[:portal][:type] unless params[:portal][:type].blank?
+    @direction = params[:portal][:direction] unless params[:portal][:direction].blank?
+    @sort = params[:portal][:sort] unless params[:portal][:sort].blank?
+    @search = params[:portal][:search] unless params[:portal][:search].blank?
+    @status = params[:portal][:status] unless params[:portal][:status].blank?
 
     respond_to do |format|
       if @portal.update_attributes(params[:portal])
-        format.html { redirect_to portals_url(:page => @page), notice: 'Portal was successfully updated.' }
+        format.html { redirect_to portals_url(page: @page, type: @type, direction: @direction, sort: @sort, search: @search, status: @status), notice: 'Portal was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

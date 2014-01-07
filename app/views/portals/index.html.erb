@@ -45,7 +45,7 @@
     <td><%= link_to portal.location, 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.location.gsub(' ', '+') + '&aq=&sll=37.0625,-95.677068&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&hq=&hnear=' + portal.location.gsub(' ', '+') + '&t=m&z=17&iwloc=A', target: "_blank" %><br /><%= link_to portal.lat_coordinate.to_s + ', ' + portal.lng_coordinate.to_s , 'https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=' + portal.lat_coordinate.to_s + ',+' + portal.lng_coordinate.to_s + '&aq=&sll=37.09024,-85.166016&sspn=42.310334,73.388672&vpsrc=0&ie=UTF8&t=m&z=17&iwloc=A', target: "_blank" %></td>
     <td><%= portal.note %></td>
     <td><%= portal.status_string %><%= ' by @' + portal.destroyed_by + ' on ' + portal.destruction_date.in_time_zone('Kuala Lumpur').to_s if portal.status_string == 'Destroyed' %></td>
-    <td><%= link_to 'Edit', edit_portal_path(portal, :page => params[:page]), :class => 'btn btn-mini' %></td>
+    <td><%= link_to 'Edit', edit_portal_path(portal, page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search], status: params[:status]), :class => 'btn btn-mini' %></td>
   </tr>
 <% end %></tbody>
 </table>
@@ -53,5 +53,7 @@
 <%= will_paginate @records %>
 
 <div class="form-actions">
-  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search]), :class => 'btn' %>
+  <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search], status: params[:status]), :class => 'btn' %>
+  <%= link_to 'Show Destroyed Portals', portals_path(page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search]), :class => 'btn' if params[:status] == "Live" %>
+  <%= link_to 'Hide Destroyed Portals', portals_path(page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search], status: "Live"), :class => 'btn' unless params[:status] == "Live" %>
 </div>
