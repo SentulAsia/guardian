@@ -10,6 +10,21 @@ namespace :status do
 		end
 		puts "Done!"
 	end
+
+	desc "Calculate Total Points"
+	task :points => :environment do
+		puts "Calculate Total Points..."
+		Portal.order('id ASC').each do |portal|
+			if portal.status_string == 'Destroyed'
+				portal.total_points = 1
+				portal.save!
+				print "---"
+			end
+			print "#{portal.id}..."
+			STDOUT.flush
+		end
+		puts "Done!"
+	end
 end
 
 namespace :time do
@@ -30,10 +45,9 @@ namespace :time do
 	task :purge => :environment do
 		puts "Purge Portals Less Than 20 Days..."
 		Portal.order('id ASC').each do |portal|
-			flag = ((Time.now - portal.captured_date) / 86400).round < 20
-			if flag
+			if ((Time.now - portal.captured_date) / 86400).round < 20
 				portal.destroy
-				print "!!!"
+				print "---"
 			end
 			print "#{portal.id}..."
 			STDOUT.flush
