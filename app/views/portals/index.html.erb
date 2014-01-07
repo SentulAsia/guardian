@@ -37,7 +37,7 @@
 
 <tbody><% @portals.each do |portal| %>
   <% age = ((@now - portal.captured_date) / 86400).round %>
-  <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %>">
+  <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %><%= 'destroyed' if portal.status_string == 'Destroyed' %>">
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
