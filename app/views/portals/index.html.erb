@@ -38,7 +38,7 @@
 <tbody><% @portals.each do |portal| %>
   <% age = ((@now - portal.captured_date) / 86400).round %>
   <% badge = age > 150 ? 'black' : age > 90 ? 'platinum' : age > 30 ? 'gold' : '' %>
-  <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %><%= 'destroyed' if portal.status_string == 'Destroyed' %>">
+  <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %><%= 'success' if portal.status_string == 'Destroyed' %>">
     <td><%= portal.agent_name %></td>
     <td><%= link_to portal.portal_name, portal.link, target: "_blank" %></td>
     <td><%= portal.captured_date %></td>
@@ -54,8 +54,8 @@
 <%= will_paginate @records %>
 
 <div class="form-actions">
+  <a href="https://www.dropbox.com/s/rwj0921xfztpw3h/ResSGMYGuardianPortals.apk" target="_blank" class="btn">Download Android App</a>
   <%= link_to 'Download Excel', portals_path(format: "xls", page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search], status: params[:status]), :class => 'btn' %>
   <%= link_to 'Show Destroyed Portals', portals_path(page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search]), :class => 'btn' if params[:status] == "Live" %>
   <%= link_to 'Hide Destroyed Portals', portals_path(page: params[:page], type: params[:type], direction: params[:direction], sort: params[:sort], search: params[:search], status: "Live"), :class => 'btn' unless params[:status] == "Live" %>
-  <a href="https://www.dropbox.com/s/rwj0921xfztpw3h/ResSGMYGuardianPortals.apk" target="_blank" class="btn">Download app</a>
 </div>
