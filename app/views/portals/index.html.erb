@@ -37,7 +37,7 @@
     </tr></thead>
 
   <tbody><% @portals.each do |portal| %>
-    <% age = ((@now - portal.captured_date) / 86400).round %>
+    <% age = ((@now - portal.captured_date) / 86400).to_i %>
     <% badge = age > 150 ? 'black' : age > 90 ? 'platinum' : age > 30 ? 'gold' : '' %>
     <tr class="<%= 'warning' if (83..90).include?(age) or (143..150).include?(age) and portal.status_string == 'Live' %><%= 'success' if portal.status_string == 'Destroyed' %>">
       <td><%= portal.agent_name %></td>

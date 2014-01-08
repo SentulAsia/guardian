@@ -1,5 +1,11 @@
 <?xml version="1.0" standalone="yes"?>
-<User>
-  <Username>plantatione</Username>
-  <Password>qy2WTBJI1tlqMfu67juxJQ==</Password>
-</User>
+<Users>
+  <UserMaster>
+    <Username>plantatione</Username>
+    <Password>qy2WTBJI1tlqMfu67juxJQ==</Password>
+  </UserMaster>
+  <UserMaster>
+    <Username>aa</Username>
+    <Password>q6SAgeY11vg=</Password>
+  </UserMaster>
+</Users>

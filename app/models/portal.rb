@@ -15,7 +15,14 @@ class Portal < ActiveRecord::Base
 
   def calculate_points
     self.destruction_date = self.destruction_date - 8.hours unless self.destruction_date.blank?
-    self.total_points = 1 if self.status_string == 'Destroyed'
+    if self.status_string == 'Destroyed'
+      age = ((Time.now - self.captured_date) / 86400).to_i
+      bonus = 0
+      bonus = self.bonus_points = 1 if (83..89).include?(age)
+      bonus = self.bonus_points = 2 if (143..150).include?(age)
+      self.age_points = 1
+      self.total_points = 1 + bonus
+    end
   end
 
   def self.search(search,type)
@@ -30,6 +37,6 @@ class Portal < ActiveRecord::Base
 
   def portal_age_above_20_days
      errors.add(:captured_date, "Portal age below 20 days") unless
-     ((Time.now - self.captured_date) / 86400).round > 19
+     ((Time.now - self.captured_date) / 86400).to_i > 19
   end
 end
