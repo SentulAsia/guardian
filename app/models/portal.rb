@@ -27,7 +27,7 @@ class Portal < ActiveRecord::Base
 
   def self.search(search,type)
       if search
-          where("#{type} LIKE ? collate nocase", "%#{search}%")
+          where("#{type} LIKE ?", "%#{search}%")
       else
           scoped
       end
