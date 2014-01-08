@@ -26,11 +26,13 @@ class Portal < ActiveRecord::Base
   end
 
   def self.search(search,type)
-      if search
-          where("#{type} LIKE ?", "%#{search}%")
-      else
-          scoped
-      end
+    if search and Rails.env.development?
+      where("#{type} LIKE ? collate nocase", "%#{search}%")
+    elsif search and Rails.env.production?
+      where("#{type} ILIKE ?", "%#{search}%")
+    else
+      scoped
+    end
   end
 
   private
