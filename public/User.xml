@@ -3,9 +3,13 @@
   <UserMaster>
     <Username>plantatione</Username>
     <Password>qy2WTBJI1tlqMfu67juxJQ==</Password>
+    <Name>Administrator</Name>
+    <Bahagian>Bahagian Pengurusan</Bahagian>
   </UserMaster>
   <UserMaster>
     <Username>aa</Username>
     <Password>q6SAgeY11vg=</Password>
+    <Name>En John Doe</Name>
+    <Bahagian>Bahagian Perladangan</Bahagian>
   </UserMaster>
 </Users>
