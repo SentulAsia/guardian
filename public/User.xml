@@ -1,15 +1,21 @@
 <?xml version="1.0" standalone="yes"?>
 <Users>
-  <UserMaster>
-    <Username>plantatione</Username>
+  <User>
+    <UserID>1</UserID>
+    <UserName>plantatione</UserName>
     <Password>qy2WTBJI1tlqMfu67juxJQ==</Password>
-    <Name>Administrator</Name>
-    <Bahagian>Bahagian Pengurusan</Bahagian>
-  </UserMaster>
-  <UserMaster>
-    <Username>aa</Username>
+    <DisplayName>Administrator</DisplayName>
+    <BranchID>1</BranchID>
+  </User>
+  <User>
+    <UserID>2</UserID>
+    <UserName>aa</UserName>
     <Password>q6SAgeY11vg=</Password>
-    <Name>En John Doe</Name>
-    <Bahagian>Bahagian Perladangan</Bahagian>
-  </UserMaster>
+    <DisplayName>En John Doe</DisplayName>
+    <BranchID>1</BranchID>
+  </User>
+  <Branch>
+    <BranchID>1</BranchID>
+    <BranchName>Bahagian Perladangan</BranchName>
+  </Branch>
 </Users>
