@@ -5,17 +5,59 @@
     <UserName>plantatione</UserName>
     <Password>qy2WTBJI1tlqMfu67juxJQ==</Password>
     <DisplayName>Administrator</DisplayName>
+    <CompanyID>1</CompanyID>
     <BranchID>1</BranchID>
+    <ProjectID>1</ProjectID>
+    <RoleID>1</RoleID>
+    <ConCurrencyID>AAAAAAAAZko=</ConCurrencyID>
+    <CreatedBy>1</CreatedBy>
+    <CreatedOn>2013-10-24T02:32:51.81+05:30</CreatedOn>
+    <ModifiedBy>1</ModifiedBy>
+    <ModifiedOn>2013-10-29T03:28:16.543+05:30</ModifiedOn>
   </User>
   <User>
     <UserID>2</UserID>
     <UserName>aa</UserName>
     <Password>q6SAgeY11vg=</Password>
     <DisplayName>En John Doe</DisplayName>
+    <CompanyID>1</CompanyID>
     <BranchID>1</BranchID>
+    <ProjectID>1</ProjectID>
+    <RoleID>1</RoleID>
+    <ConCurrencyID>AAAAAAAAZko=</ConCurrencyID>
+    <CreatedBy>1</CreatedBy>
+    <CreatedOn>2013-10-24T02:32:51.81+05:30</CreatedOn>
+    <ModifiedBy>1</ModifiedBy>
+    <ModifiedOn>2013-10-29T03:28:16.543+05:30</ModifiedOn>
   </User>
   <Branch>
+    <RNo>1</RNo>
     <BranchID>1</BranchID>
+    <CompanyID>1</CompanyID>
+    <SubsidiaryID>1</SubsidiaryID>
+    <BranchCode>ABC123</BranchCode>
     <BranchName>Bahagian Perladangan</BranchName>
+    <BranchType>Ladang</BranchType>
+    <BranchManager>Ladang</BranchManager>
+    <Address1>123</Address1>
+    <Address2>Jalan 1</Address2>
+    <Address3>TTDI Jaya</Address3>
+    <PostCode>54000</PostCode>
+    <Town>Petaling Jaya</Town>
+    <State>Selangor</State>
+    <Country>Malaysia</Country>
+    <Region>SEA</Region>
+    <FaxNo>0355108901</FaxNo>
+    <TelephoneNo>0355108900</TelephoneNo>
+    <TaxNo>TX1234</TaxNo>
+    <EPFNo>EPF1234</EPFNo>
+    <CostCenter>100.50</CostCenter>
+    <BankID>MBB</BankID>
+    <BankACID>12345-50-6666</BankACID>
+    <ConCurrencyID>AAAAAAAAZko=</ConCurrencyID>
+    <CreatedBy>1</CreatedBy>
+    <CreatedOn>2013-10-24T02:32:51.81+05:30</CreatedOn>
+    <ModifiedBy>1</ModifiedBy>
+    <ModifiedOn>2013-10-29T03:28:16.543+05:30</ModifiedOn>
   </Branch>
 </Users>
