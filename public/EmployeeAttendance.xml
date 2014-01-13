@@ -20,6 +20,7 @@
     <Children>2</Children>
     <TaxCategory>ServiceTax</TaxCategory>
     <EPFScheme>Emp123Emp145</EPFScheme>
+    <SOCSOScheme>Soc123Soc145</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>4000.00</SalaryDifferential>
@@ -74,6 +75,7 @@
     <Children>0</Children>
     <TaxCategory>ServiceTax</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>600.00</SalaryDifferential>
@@ -128,6 +130,7 @@
     <Children>0</Children>
     <TaxCategory>ServiceTax</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>600.00</SalaryDifferential>
@@ -182,6 +185,7 @@
     <Children>1</Children>
     <TaxCategory>Income Tax</TaxCategory>
     <EPFScheme>Emp</EPFScheme>
+    <SOCSOScheme>Soc</SOCSOScheme>
     <Mandore>Y</Mandore>
     <MandoreRate>1</MandoreRate>
     <SalaryDifferential>4000.00</SalaryDifferential>
@@ -236,6 +240,7 @@
     <Children>2</Children>
     <TaxCategory>Income Tax</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>1200.00</SalaryDifferential>
@@ -290,6 +295,7 @@
     <Children>2</Children>
     <TaxCategory>ServiceTax...</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>4000.00</SalaryDifferential>
@@ -344,6 +350,7 @@
     <Children>2</Children>
     <TaxCategory>ServiceTax...</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>4000.00</SalaryDifferential>
@@ -398,6 +405,7 @@
     <Children>2</Children>
     <TaxCategory>Income Tax</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>8000.00</SalaryDifferential>
@@ -452,6 +460,7 @@
     <Children>1</Children>
     <TaxCategory>Income Tax</TaxCategory>
     <EPFScheme>Emp13Emp14</EPFScheme>
+    <SOCSOScheme>Soc13Soc14</SOCSOScheme>
     <Mandore>Y</Mandore>
     <MandoreRate>1</MandoreRate>
     <SalaryDifferential>200.00</SalaryDifferential>
@@ -506,6 +515,7 @@
     <Children>No</Children>
     <TaxCategory>ServiceTax</TaxCategory>
     <EPFScheme>Emp123Emp145</EPFScheme>
+    <SOCSOScheme>Soc123Soc145</SOCSOScheme>
     <Mandore>N</Mandore>
     <MandoreRate>0</MandoreRate>
     <SalaryDifferential>10.00</SalaryDifferential>
@@ -560,6 +570,7 @@
     <Children>1</Children>
     <TaxCategory>ServiceTax...</TaxCategory>
     <EPFScheme>Emp123Emp145</EPFScheme>
+    <SOCSOScheme>Soc123Soc145</SOCSOScheme>
     <Mandore>Y</Mandore>
     <MandoreRate>1</MandoreRate>
     <SalaryDifferential>8000.00</SalaryDifferential>
