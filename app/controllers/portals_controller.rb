@@ -6,7 +6,7 @@ class PortalsController < ApplicationController
   # GET /portals
   # GET /portals.json
   def index
-    @now = Time.now
+    @now = Time.now + 8.hours
     @portals = Portal.paginate(:conditions => ["status_string = ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status].blank?
     @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status].blank?
 
