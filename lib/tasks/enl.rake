@@ -22,6 +22,7 @@ namespace :status do
       			bonus = portal.bonus_points = 2 if (143..150).include?(age)
       			portal.age_points = 1
       			portal.total_points = 1 + bonus
+      			portal.destroyed_by = '__JARVIS__' if portal.destroyed_by.blank?
 				portal.save!
 				print "---"
 			end

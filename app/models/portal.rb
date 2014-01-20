@@ -22,6 +22,7 @@ class Portal < ActiveRecord::Base
       bonus = self.bonus_points = 2 if (143..150).include?(age)
       self.age_points = 1
       self.total_points = 1 + bonus
+      self.destroyed_by = '__JARVIS__' if self.destroyed_by.blank?
     end
   end
 
