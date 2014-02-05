@@ -98,7 +98,6 @@ class PortalsController < ApplicationController
     respond_to do |format|
       format.json { render json: [@hash, @portals.total_pages] }
       format.xml { render xml: [@hash, @portals.total_pages] }
-      format.xls
     end
   end
 
