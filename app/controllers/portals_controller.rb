@@ -9,10 +9,11 @@ class PortalsController < ApplicationController
     @now = Time.now + 8.hours
     @portals = Portal.paginate(:conditions => ["status_string = ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status].blank?
     @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status].blank?
+    @hash = Portal.calculate_hash @portals
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @portals }
+      format.json { render json: Portal.json_data(@portals, @hash) }
       format.xml { render xml: @portals }
       format.xls
     end
@@ -85,6 +86,19 @@ class PortalsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @portal.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # GET /portals/hash
+  def hash
+    @portals = Portal.paginate(:conditions => ["status_string = ?", params[:status]], :page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) unless params[:status].blank?
+    @portals = Portal.paginate(:page => params[:page], :per_page => 30).search(params[:search], params[:type]).order(sort_column + " " + sort_direction) if params[:status].blank?
+    @hash = Portal.calculate_hash @portals
+
+    respond_to do |format|
+      format.json { render json: [@hash, @portals.total_pages] }
+      format.xml { render xml: [@hash, @portals.total_pages] }
+      format.xls
     end
   end
 

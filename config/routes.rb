@@ -1,5 +1,6 @@
 GuardianEnlMy::Application.routes.draw do
   get 'seed/:agent_name/:portal_name/:captured_date/:lng_coordinate/:lat_coordinate/:location/:portal_guid' => 'portals#seed', :as => :portal_seed
+  get 'hash/:page' => 'portals#hash', :as => :portal_hash
   resources :portals, :except => [:new, :create, :destroy, :show]
 
 

@@ -13,6 +13,40 @@ class Portal < ActiveRecord::Base
 
   before_save :calculate_points
 
+  def self.calculate_hash(data)
+    Digest::MD5.hexdigest data.to_json
+  end
+
+  def self.json_data(data, hash)
+    data.map { |datum|
+      {
+        :age_points => datum.age_points,
+        :agent_name => datum.agent_name,
+        :bonus_details => datum.bonus_details,
+        :bonus_points => datum.bonus_points,
+        :captured_date => datum.captured_date,
+        :city => datum.city,
+        :created_at => datum.created_at,
+        :day_of_150 => datum.day_of_150,
+        :destroyed_by => datum.destroyed_by,
+        :destruction_date => datum.destruction_date,
+        :id => datum.id,
+        :lat_coordinate => datum.lat_coordinate,
+        :link => datum.link,
+        :lng_coordinate => datum.lng_coordinate,
+        :location => datum.location,
+        :note => datum.note,
+        :portal_guid => datum.portal_guid,
+        :portal_name => datum.portal_name,
+        :status_string => datum.status_string,
+        :id => datum.id,
+        :total_points => datum.total_points,
+        :updated_at => datum.updated_at,
+        :hash => hash
+      }
+    }
+  end
+
   def calculate_points
     self.destruction_date = self.destruction_date - 8.hours unless self.destruction_date.blank?
     if self.status_string == 'Destroyed'
