@@ -14,7 +14,7 @@ class PortalsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: Portal.json_data(@portals, @hash) }
-      format.xml { render xml: @portals }
+      format.xml { render xml: Portal.json_data(@portals, @hash) }
       format.xls
     end
   end
