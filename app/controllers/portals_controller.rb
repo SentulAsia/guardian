@@ -96,8 +96,8 @@ class PortalsController < ApplicationController
     @hash = Portal.calculate_hash @portals
 
     respond_to do |format|
-      format.json { render json: [@hash, @portals.total_pages] }
-      format.xml { render xml: [@hash, @portals.total_pages] }
+      format.json { render json: [:hash => @hash, :total_pages => @portals.total_pages] }
+      format.xml { render xml: [:hash => @hash, :total_pages => @portals.total_pages] }
     end
   end
 
