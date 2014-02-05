@@ -11,6 +11,10 @@ group :development do
   gem 'debugger'
 end
 
+group :test do
+  gem 'shoulda'
+end
+
 group :production do
   gem 'pg'
 end
@@ -18,7 +22,8 @@ end
 # gem 'rack-cors', :require => 'rack/cors'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'savon'
+gem 'speedy_gcm'
+gem 'sidekiq'
 
 
 # Gems used only for assets and not required

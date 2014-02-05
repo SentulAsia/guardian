@@ -1,0 +1,3 @@
+GCM_API_KEY = "YOUR API KEY"
+
+SpeedyGCM::API.set_account(GCM_API_KEY)
