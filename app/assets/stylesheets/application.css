@@ -80,3 +80,13 @@ div.control-group div.controls textarea.text_area {
 .pretty th .desc {
     background-image: url(/assets/down_arrow.png);
 }
+
+.success a, .success a:visited {
+    color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
