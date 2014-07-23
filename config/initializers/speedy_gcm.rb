@@ -1,3 +1,0 @@
-GCM_API_KEY = "AIzaSyCF1060v5quez7Ua5ExQGD6yaU1yZjPK2Q"
-
-SpeedyGCM::API.set_account(GCM_API_KEY)

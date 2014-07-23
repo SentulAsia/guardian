@@ -19,6 +19,17 @@ class PortalsController < ApplicationController
     end
   end
 
+  def all
+    @portals = Portal.all
+
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { redirect_to root_url }
+      format.xml { redirect_to root_url }
+      format.xls
+    end
+  end
+
   # GET /portals/1
   # GET /portals/1.json
   # def show

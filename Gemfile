@@ -23,9 +23,6 @@ end
 # gem 'rack-cors', :require => 'rack/cors'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
-gem 'apn_on_rails'
-gem 'speedy_gcm'
-gem 'sidekiq'
 
 
 # Gems used only for assets and not required
